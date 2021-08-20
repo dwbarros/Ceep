@@ -1,14 +1,36 @@
 import React, { Component } from 'react';
-import { FormCadastro } from './components/FormCadastro';
-import { ListaDeNotas } from './components/ListaDeNotas';
+import FormCadastro from './components/FormCadastro';
+import ListaDeNotas from './components/ListaDeNotas';
+import './assets/reset.css';
+import './assets/App.css';
 
-export default class App extends Component {
+class App extends Component {
+  
+  constructor() {
+    super();
+
+    this.state = {
+      notes: []
+    };
+  }
+
+  createCard(title, text) {
+    const newNote = {title, text};
+    const newArrayNotes = [...this.state.notes, newNote]
+    const newState = {
+      notes: newArrayNotes
+    }
+    this.setState(newState)
+  }
+  
   render() {
     return (
-      <section>
-        <FormCadastro></FormCadastro>
-        <ListaDeNotas></ListaDeNotas>
+      <section className="content">
+        <FormCadastro createCard={this.createCard.bind(this)}></FormCadastro>
+        <ListaDeNotas notes={this.state.notes}></ListaDeNotas>
       </section>
     );
   }
 }
+
+export default App;

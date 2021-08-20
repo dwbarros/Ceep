@@ -1,0 +1,21 @@
+.note-list {
+    display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));  
+        grid-gap: 1.5rem;
+
+    margin-left: 25%;
+    padding: 2rem;
+}
+
+.note-list__item {
+    background-color: #ffff99;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    padding: 1rem;
+}
+
+.note-list__type {
+    font-size: small;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-bottom: 1rem;
+}

@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { FormCadastro } from './components/FormCadastro';
+import { ListaDeNotas } from './components/ListaDeNotas';
 
-function App() {
-  return (
-    <>
-      <p>Hello World</p>
-    </>
-  );
+export default class App extends Component {
+  render() {
+    return (
+      <section>
+        <FormCadastro></FormCadastro>
+        <ListaDeNotas></ListaDeNotas>
+      </section>
+    );
+  }
 }
-
-export default App;

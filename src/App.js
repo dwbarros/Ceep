@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import FormCadastro from './components/FormCadastro';
 import ListaDeNotas from './components/ListaDeNotas';
+import Categories from './components/Categorie'
 import './assets/reset.css';
 import './assets/App.css';
 
@@ -10,7 +11,8 @@ class App extends Component {
     super();
 
     this.state = {
-      notes: []
+      notes: [],
+      categories: []
     };
   }
 
@@ -28,6 +30,12 @@ class App extends Component {
     arrayNotes.splice(index,1);
     this.setState({notas: arrayNotes})
   }
+
+  createCategorie (nameCategorie){
+    const newArrayCategories = [...this.state.categories, nameCategorie]
+    const newState = {...this.state, categories: newArrayCategories}
+    this.setState(newState)
+  }
   
   render() {
     return (
@@ -35,10 +43,18 @@ class App extends Component {
         <FormCadastro 
           createCard={this.createCard.bind(this)}
         ></FormCadastro>
-        <ListaDeNotas 
-          notes={this.state.notes}
-          deleteNote={this.deleteNote.bind(this)}
-        ></ListaDeNotas>
+
+        <main className="main">
+          <Categories
+            categories={this.state.categories}
+            createCategorie={this.createCategorie.bind(this)}
+          ></Categories>
+          
+          <ListaDeNotas 
+            notes={this.state.notes}
+            deleteNote={this.deleteNote.bind(this)}
+          ></ListaDeNotas>
+        </main>
       </section>
     );
   }

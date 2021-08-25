@@ -1,5 +1,8 @@
 .logo {
-    padding: 4rem;
+    margin: 0 auto;
+    max-width: 150px;
+    padding-bottom: 2rem;
+    width: 90%;
 }
 
 .form-cadastro {
@@ -33,6 +36,7 @@
 
 .form-cadastro__button {
     color: white;
+    cursor: pointer;
     background-color: var(--secundaria);
     border: none;
     border-radius: 6px;

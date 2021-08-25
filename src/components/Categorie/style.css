@@ -1,0 +1,26 @@
+.categorie {
+    display: flex;
+        justify-content: space-between;
+
+    padding: 1.5rem;
+}
+
+.categorie__list {
+    display: flex;
+}
+
+.categorie__list__item {
+    background-color: #666666;
+    border-radius: 8px;
+    color: white;
+    font-size: small;
+    font-weight: bold;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: .5rem;
+    padding: .5rem;
+}
+
+.categorie__input {
+    border-radius: 8px;
+    padding: .3rem;
+}

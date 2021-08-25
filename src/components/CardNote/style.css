@@ -13,6 +13,7 @@
 }
 
 .card-note__delete {
+    cursor: pointer;
     height: 1em;
     margin-left: 3px;
 }

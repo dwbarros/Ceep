@@ -1,3 +1,8 @@
+.card-note__header {
+    display: flex;
+    justify-content: space-between;
+}
+
 .card-note__title {
     font-weight: bold;
     margin-bottom: 1rem;
@@ -5,4 +10,9 @@
 
 .card-note__text {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.card-note__delete {
+    height: 1em;
+    margin-left: 3px;
 }

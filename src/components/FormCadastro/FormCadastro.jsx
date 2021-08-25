@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './style.css'
+import './style.css';
+import logo from '../../assets/img/logo.png';
 
 class FormCadastro extends Component {
 
@@ -32,7 +33,9 @@ class FormCadastro extends Component {
                 action="submit"
                 onSubmit={this._createCard.bind(this)}
             >
-
+                
+                <img className="logo" src={logo} alt="Logo DW Notes" />
+                
                 <input
                     className="form-cadastro__title" 
                     type="text" 
@@ -47,8 +50,7 @@ class FormCadastro extends Component {
                     rows="10"
                     placeholder="Escreva sua nota..."
                     onChange={this._handlerChangeText.bind(this)}
-                >
-                </textarea>
+                ></textarea>
 
                 <button
                     className="form-cadastro__button"

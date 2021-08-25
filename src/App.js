@@ -16,18 +16,29 @@ class App extends Component {
 
   createCard(title, text) {
     const newNote = {title, text};
-    const newArrayNotes = [...this.state.notes, newNote]
+    const newArrayNotes = [...this.state.notes, newNote];
     const newState = {
       notes: newArrayNotes
     }
-    this.setState(newState)
+    this.setState(newState);
+  }
+
+  deleteNote(index) {
+    let arrayNotes = this.state.notes;
+    arrayNotes.splice(index,1);
+    this.setState({notas: arrayNotes})
   }
   
   render() {
     return (
       <section className="content">
-        <FormCadastro createCard={this.createCard.bind(this)}></FormCadastro>
-        <ListaDeNotas notes={this.state.notes}></ListaDeNotas>
+        <FormCadastro 
+          createCard={this.createCard.bind(this)}
+        ></FormCadastro>
+        <ListaDeNotas 
+          notes={this.state.notes}
+          deleteNote={this.deleteNote.bind(this)}
+        ></ListaDeNotas>
       </section>
     );
   }

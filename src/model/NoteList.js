@@ -11,6 +11,10 @@ export default class NoteList {
         this._observers.push(func)
     }
 
+    unsubscribe(func) {
+        this._observers = this._observers.filter(f => f !== func);
+    }
+
     notify() {
         this._observers.forEach(func => func(this.noteList))
     }

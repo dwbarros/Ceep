@@ -8,10 +8,16 @@ class Categorie extends Component {
         this.state = {
             categories:[]
         }
+
+        this._novasCategorias = this._novasCategorias.bind(this)
     }
 
     componentDidMount() {
-        this.props.categorieList.subscribe(this._novasCategorias.bind(this));
+        this.props.categorieList.subscribe(this._novasCategorias);
+    }
+
+    componentWillUnmount() {
+        this.props.categorieList.unsubscribe(this._novasCategorias)
     }
 
     _novasCategorias(categories) {

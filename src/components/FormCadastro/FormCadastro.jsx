@@ -8,6 +8,16 @@ class FormCadastro extends Component {
         super(props);
         this.title = "";
         this.text = "";
+        this.categorie = "Outros";
+        this.state = {categories: []}
+    }
+
+    componentDidMount() {
+        this.props.categorieList.subscribe(this._novasCategorias.bind(this))
+    }
+
+    _novasCategorias(categories) {
+        this.setState({...this.state, categories})
     }
 
     _handlerChangeTitle(event) {
@@ -20,10 +30,15 @@ class FormCadastro extends Component {
         this.text = event.target.value;
     }
 
+    _handlerChangeCategorie(event) {
+        event.stopPropagation();
+        this.categorie = event.target.value;
+    }
+    
     _createCard(event) {
         event.preventDefault();
         event.stopPropagation();
-        this.props.createCard(this.title, this.text);
+        this.props.addNote(this.title, this.text, this.categorie);
     }
     
     render() {
@@ -32,10 +47,21 @@ class FormCadastro extends Component {
                 className="form-cadastro" 
                 action="submit"
                 onSubmit={this._createCard.bind(this)}
-            >
-                
+            >                
                 <img className="logo" src={logo} alt="Logo DW Notes" />
                 
+                <select
+                    className="form-cadastro__categories"
+                    onChange={this._handlerChangeCategorie.bind(this)}
+                >
+                    <option>Outros</option>
+                    {this.state.categories.map((categorie, index) => {
+                        return (
+                            <option key={index}>{categorie}</option>
+                        )
+                    })}                    
+                </select>
+
                 <input
                     className="form-cadastro__title" 
                     type="text" 

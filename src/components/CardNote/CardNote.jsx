@@ -13,6 +13,7 @@ class CardNote extends Component {
             <section className="card-note">
                 <header className="card-note__header">
                     <h3 className="card-note__title">{this.props.title}</h3>
+                    <h4 className="card-note__categorie">{this.props.categorie}</h4>
                     <DeleteSVG 
                         className="card-note__delete"
                         onClick={this._handlerDeleteNote.bind(this)}
